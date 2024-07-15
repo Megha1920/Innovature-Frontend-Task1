@@ -7,7 +7,7 @@ export default createStore({
     user: null,
     result: null,
     error: null,
-    operation: null, // Assuming you might need to store the current operation type
+    operation: null, 
   },
   mutations: {
     setToken(state, token) {
@@ -23,7 +23,7 @@ export default createStore({
       state.error = error;
     },
     setOperation(state, operation) {
-      state.operation = operation; // Setting the operation type
+      state.operation = operation; 
     },
   },
   actions: {
@@ -52,14 +52,14 @@ export default createStore({
     },
     async performOperation({ commit, state }, { num1, num2 }) {
       try {
-        // Ensure operation is set before making the request
+        
         if (!state.operation) {
           commit('setError', 'Operation type is not set');
           return;
         }
         
         const response = await axios.post(
-          `http://localhost:8000/api/arthop/${state.operation}/`, // Using the operation from state
+          `http://localhost:8000/api/arthop/${state.operation}/`, 
           { num1, num2 },
           {
             headers: {

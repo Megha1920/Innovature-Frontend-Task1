@@ -2,7 +2,7 @@
   <div class="arithmetic-operations">
     <h1>Arithmetic Operations</h1>
 
-    <!-- Operation Buttons Section -->
+    
     <div class="operation-buttons">
       <button @click="setOperation('add')" class="operation-button">Addition</button>
       <button @click="setOperation('subtract')" class="operation-button">Subtraction</button>
@@ -10,19 +10,19 @@
       <button @click="setOperation('divide')" class="operation-button">Division</button>
     </div>
 
-    <!-- Operation Inputs Section -->
+    
     <div class="operation-inputs">
       <input type="number" v-model.number="num1" placeholder="Enter number 1" class="operation-input" />
       <input type="number" v-model.number="num2" placeholder="Enter number 2" class="operation-input" />
       <button @click="calculate" class="calculate-button">Calculate</button>
     </div>
 
-    <!-- Result Display Section -->
+    
     <div v-if="result !== null" class="result-container">
       <p class="result-text">Result: {{ result }}</p>
     </div>
 
-    <!-- Error Display Section -->
+    
     <div v-if="error" class="error-container">
       <p class="error-text">Error: {{ error }}</p>
     </div>
@@ -45,11 +45,11 @@ export default {
   methods: {
     ...mapActions(['performOperation']),
     setOperation(operation) {
-      this.$store.commit('setOperation', operation); // Commit operation mutation
+      this.$store.commit('setOperation', operation); 
     },
     async calculate() {
       const { num1, num2 } = this;
-      await this.performOperation({ num1, num2, operation: this.$store.state.operation }); // Pass 'operation'
+      await this.performOperation({ num1, num2, operation: this.$store.state.operation });
     },
   },
 
@@ -64,8 +64,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 600px; /* Limiting width for better readability */
-  margin: 0 auto; /* Center align horizontally */
+  max-width: 600px; 
+  margin: 0 auto; 
 }
 
 h1 {
